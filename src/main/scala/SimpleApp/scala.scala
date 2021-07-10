@@ -80,8 +80,6 @@ object SimpleApp {
     val header = movieRDD.first()
     val movieRDDWithoutHeader = movieRDD.filter(e => e!=header)
 
-
-
     val movieObjectRDD = movieRDDWithoutHeader.map(elem => (Movies2(elem.split(",")(0),elem.split(",")(5), elem.split(",")(7),elem.split(",")(8),elem.split(",")(9))))
 
     movieObjectRDD.filter(elem=>elem.director.equals("Ernst Lubitsch")).take(10).foreach(println)
